@@ -1,0 +1,12 @@
+streamlit
+openpyxl
+python-dotenv
+langchain
+langchain-community
+langchain-openai
+faiss-cpu
+tenacity
+sentence-transformers
+openai
+transformers
+torch
