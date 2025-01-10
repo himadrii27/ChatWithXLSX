@@ -30,3 +30,6 @@ Language Model: OpenAI ChatOpenAI / Hugging Face Sentence Transformers for embed
 Vector Store: FAISS (via langchain_community)
 UI: Streamlit
 Environment Management: python-dotenv for handling environment variables (OpenAI API key).
+
+
+live url - https://project-rzpbf9jymxaaxhv37g8gru.streamlit.app
