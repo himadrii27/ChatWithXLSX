@@ -33,3 +33,4 @@ Environment Management: python-dotenv for handling environment variables (OpenAI
 
 
 live url - https://project-rzpbf9jymxaaxhv37g8gru.streamlit.app
+new- https://chatpdf1py-f7g3uwculfrahs7rvlpl3u.streamlit.app
