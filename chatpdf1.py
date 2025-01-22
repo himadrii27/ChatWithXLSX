@@ -1,7 +1,8 @@
+import cohere
 import streamlit as st
 import openpyxl
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_openai import ChatOpenAI
+from langchain_community.llms import Cohere
 from langchain_community.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
@@ -14,8 +15,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Verify the API key is loaded
-if not os.getenv("OPENAI_API_KEY"):
-    st.error("OpenAI API key not found. Please check your .env file.")
+if not os.getenv("COHERE_API_KEY"):
+    st.error("Cohere API key not found. Please check your .env file.")
 
 # Initialize embeddings globally
 @st.cache_resource
@@ -76,7 +77,11 @@ def get_conversation_chain():
     """
     
     try:
-        model = ChatOpenAI(temperature=0.3)
+        model = Cohere(
+            cohere_api_key=os.getenv("COHERE_API_KEY"),
+            model="command",
+            temperature=0.3
+        )
         prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
         chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
         return chain
